@@ -1,10 +1,21 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+import { DashboardComponent } from './features/dashboard/dashboard.component';
+import { HomeComponent } from './features/home/home.component';
+import { LogInComponent } from './features/log-in/log-in.component';
+import { RegisterComponent } from './features/register/register.component';
+
+const routes: Routes = [
+  { path: '', pathMatch: 'full', redirectTo: 'home' },
+  { path: 'home', pathMatch: 'full', component: HomeComponent },
+  { path: 'login', pathMatch: 'full', component: LogInComponent },
+  { path: 'register', pathMatch: 'full', component: RegisterComponent },
+  { path: 'dashboard', pathMatch: 'full', component: DashboardComponent },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
